@@ -39,9 +39,9 @@ cuts nsamples len xs = loop nsamples [] xs
 				(cut, xs') = List.splitAt len xs
 
 simulateIncreaseOfObservations :: [Double] -> [(Int, Double)]
-simulateIncreaseOfObservations rs = loop 1 100 rs
+simulateIncreaseOfObservations rs = loop 1 10000 rs
 	where
-		loop ns len rs = map (\c -> (len, avg c)) cs ++ loop ns (len+1) rs'
+		loop ns len rs = map (\c -> (len, avg c)) cs ++ loop ns (len+100) rs'
 			where
 				(cs, rs') = cuts ns len rs
 
